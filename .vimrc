@@ -26,9 +26,9 @@ set ts=2 sts=2 sw=2 expandtab "Default Tab/Whitespace"
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
 
-	autocmd FileType javascript setlocal ts=3 sts=3 sw=3 noexpandtab
+	autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noexpandtab
 	autocmd FileType python setlocal ts=3 sts=3 sw=3 expandtab
-	autocmd FileType go setlocal ts=3 sts=3 sw=3 expandtab
+	autocmd FileType go setlocal ts=2 sts=2 sw=2 expandtab
 endif
 
 set listchars=eol:$,space:.,tab:»-
@@ -86,7 +86,7 @@ if has("autocmd")
 
   autocmd FileType go nmap <leader>b :<C-u>call <SID>BuildGoFiles()<CR>
 
-  autocmd BufNewFile,BufRead *.go setlocal tabstop=3 shiftwidth=3
+  autocmd BufNewFile,BufRead *.go setlocal tabstop=2 shiftwidth=2
 
   autocmd FileType go setlocal omnifunc=go#complete#Complete
   autocmd FileType go setlocal completeopt=longest,menuone

@@ -65,7 +65,7 @@ let g:go_term_enabled=1
 let g:go_term_mode='split'
 let g:go_term_reuse=1
 let g:go_term_close_on_exit=0
-let g:go_term_height=9
+let g:go_term_height=11
 let g:go_jump_to_error=1
 let g:go_test_show_name=1
 

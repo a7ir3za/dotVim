@@ -83,6 +83,7 @@ if has("autocmd")
   autocmd Filetype go nmap <Leader>w <plug>(go-doc-browser)
   autocmd Filetype go nmap <Leader>y <plug>(go-sameids)
   autocmd Filetype go nmap <Leader>m <plug>(go-implements)
+  autocmd Filetype go nmap <Leader>e <plug>(go-iferr)
 
   autocmd FileType go nmap <leader>b :<C-u>call <SID>BuildGoFiles()<CR>
 

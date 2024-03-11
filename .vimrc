@@ -17,6 +17,9 @@ set foldcolumn=5
 set ts=2 sts=2 sw=2 expandtab "Default Tab/Whitespace"
 
 "colorscheme default 
+"colorscheme evening
+colorscheme morning
+
 "highlight FoldColumn ctermbg=Black ctermfg=Grey
 "highlight Folded ctermfg=Black
 "highlight MatchParen ctermbg=12

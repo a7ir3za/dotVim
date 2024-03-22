@@ -108,12 +108,14 @@ function! s:BuildGoFiles()
   endif
 endfunction
 
-let b:gitStat = '[]'
+let g:gitStat = '[]'
 function GitStatus()
-  let b:gitStat = '['.system("git diff --minimal --stat ".shellescape(expand('%'))."|head -1|awk '{print$3,$4}'|tr -d '\n'").']'
+  let g:gitStat = '['.system("git diff --minimal --stat ".shellescape(expand('%'))."|head -1|awk '{print$3,$4}'|tr -d '\n'").']'
 endfunction
 
-autocmd BufEnter,BufWritePost *.go call GitStatus()
+if has("autocmd")
+  autocmd BufEnter,BufWritePost *.go call GitStatus()
+endif
 
 " Status Line {{{1
 set laststatus=2
@@ -131,7 +133,7 @@ set statusline+=%R              " readonly flag
 set statusline+=%M              " modified [+] flag
 set statusline+=%#CursorLine#
 set statusline+=\ %t\           " short file name
-set statusline+=%(%{b:gitStat}%)
+set statusline+=%(%{g:gitStat}%)
 set statusline+=\ %3l:%-2c\     " line + column
 set statusline+=%=              " right align
 set statusline+=%#CursorLine#

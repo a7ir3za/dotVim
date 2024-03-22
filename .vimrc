@@ -96,7 +96,7 @@ if has("autocmd")
   autocmd FileType go setlocal omnifunc=go#complete#Complete
   autocmd FileType go setlocal completeopt=longest,menuone
 
-  autocmd Filetype go iabbrev ftst func Test(t *testing.T) {<Cr>}
+  autocmd Filetype go iabbrev ftst func Test(t *testing.T) {<CR>}
 endif
 
 function! s:BuildGoFiles()

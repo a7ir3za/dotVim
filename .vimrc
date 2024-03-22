@@ -17,8 +17,8 @@ set foldcolumn=5
 set ts=2 sts=2 sw=2 expandtab "Default Tab/Whitespace"
 
 "colorscheme default 
-"colorscheme evening
-colorscheme morning
+"colorscheme morning
+colorscheme retrobox 
 
 "highlight FoldColumn ctermbg=Black ctermfg=Grey
 "highlight Folded ctermfg=Black
@@ -32,6 +32,7 @@ if has("autocmd")
 	autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noexpandtab
 	autocmd FileType python setlocal ts=3 sts=3 sw=3 expandtab
 	autocmd FileType go setlocal ts=2 sts=2 sw=2 expandtab
+
 endif
 
 set listchars=eol:$,space:.,tab:»-
@@ -107,6 +108,13 @@ function! s:BuildGoFiles()
   endif
 endfunction
 
+let b:gitStat = '[]'
+function GitStatus()
+  let b:gitStat = '['.system("git diff --minimal --stat ".shellescape(expand('%'))."|head -1|awk '{print$3,$4}'|tr -d '\n'").']'
+endfunction
+
+autocmd BufEnter,BufWritePost *.go call GitStatus()
+
 " Status Line {{{1
 set laststatus=2
 set statusline=
@@ -123,6 +131,7 @@ set statusline+=%R              " readonly flag
 set statusline+=%M              " modified [+] flag
 set statusline+=%#CursorLine#
 set statusline+=\ %t\           " short file name
+set statusline+=%(%{b:gitStat}%)
 set statusline+=\ %3l:%-2c\     " line + column
 set statusline+=%=              " right align
 set statusline+=%#CursorLine#

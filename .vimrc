@@ -114,7 +114,7 @@ function! GitStatus()
 endfunction
 
 if has("autocmd")
-  autocmd BufEnter,BufWritePost *.go call GitStatus()
+  autocmd BufEnter,FocusGained,BufWritePost *.go call GitStatus()
 endif
 
 " Status Line {{{1
@@ -124,6 +124,7 @@ set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
 set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
 set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=%#Cursor#%{(mode()=='c')?'\ \ CMD\ ':''}
 set statusline+=\ %n\           " buffer number
 set statusline+=%#Visual#
 set statusline+=%{&paste?'\ PASTE\ ':''}

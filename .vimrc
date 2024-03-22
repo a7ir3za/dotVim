@@ -108,9 +108,9 @@ function! s:BuildGoFiles()
   endif
 endfunction
 
-let g:gitStat = '[]'
-function GitStatus()
-  let g:gitStat = '['.system("git diff --minimal --stat ".shellescape(expand('%'))."|head -1|awk '{print$3,$4}'|tr -d '\n'").']'
+let gitStat = '[]'
+function! GitStatus()
+  let gitStat = '['.system("git diff --minimal --stat ".shellescape(expand('%'))."|head -1|awk '{print$3,$4}'|tr -d '\n'").']'
 endfunction
 
 if has("autocmd")
@@ -133,7 +133,7 @@ set statusline+=%R              " readonly flag
 set statusline+=%M              " modified [+] flag
 set statusline+=%#CursorLine#
 set statusline+=\ %t\           " short file name
-set statusline+=%(%{g:gitStat}%)
+set statusline+=%(%{gitStat}%)
 set statusline+=\ %3l:%-2c\     " line + column
 set statusline+=%=              " right align
 set statusline+=%#CursorLine#

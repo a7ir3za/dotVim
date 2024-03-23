@@ -123,8 +123,8 @@ set statusline=
 set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
 set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
-set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-set statusline+=%#Cursor#%{(mode()=='c')?'\ \ CMD\ ':''}
+set statusline+=%#DiffChange#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=%#DiffChange#%{(mode()=='c')?'\ \ CMD\ ':''}
 set statusline+=\ %n\           " buffer number
 set statusline+=%#Visual#
 set statusline+=%{&paste?'\ PASTE\ ':''}
@@ -134,7 +134,7 @@ set statusline+=%R              " readonly flag
 set statusline+=%M              " modified [+] flag
 set statusline+=%#CursorLine#
 set statusline+=\ %t\           " short file name
-set statusline+=%(%{g:gitStat}%)
+set statusline+=%{g:gitStat}
 set statusline+=\ %3l:%-2c\     " line + column
 set statusline+=%=              " right align
 set statusline+=%#CursorLine#

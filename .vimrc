@@ -110,7 +110,7 @@ endfunction
 
 let g:gitStat = '[]'
 function! GitStatus()
-  let g:gitStat = '['.system("git diff --minimal --stat ".shellescape(expand('%'))."|head -1|awk '{print$3,$4}'|tr -d '\n'").']'
+  let g:gitStat = '['.system("git diff --no-color --minimal --stat ".shellescape(expand('%'))."|head -1|awk '{print$3,$4}'|tr -d '\n'").']'
 endfunction
 
 if has("autocmd")
@@ -124,7 +124,7 @@ set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
 set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
 set statusline+=%#DiffChange#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-set statusline+=%#DiffChange#%{(mode()=='c')?'\ \ CMD\ ':''}
+set statusline+=%#DiffChange#%{(mode()=='c')?'\ \ CMMAND\ ':''}
 set statusline+=\ %n\           " buffer number
 set statusline+=%#Visual#
 set statusline+=%{&paste?'\ PASTE\ ':''}

@@ -114,7 +114,7 @@ function! GitStatus()
 endfunction
 
 if has("autocmd")
-  autocmd BufEnter,FocusGained,BufWritePost *.go call GitStatus()
+  autocmd BufEnter,BufWritePost *.go call GitStatus()
 endif
 
 " Status Line {{{1

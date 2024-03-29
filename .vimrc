@@ -16,9 +16,8 @@ command! -nargs=* Wrap set wrap linebreak nolist
 set foldcolumn=5
 set ts=2 sts=2 sw=2 expandtab "Default Tab/Whitespace"
 
-"colorscheme default 
 "colorscheme morning
-colorscheme retrobox 
+"colorscheme retrobox
 
 "highlight FoldColumn ctermbg=Black ctermfg=Grey
 "highlight Folded ctermfg=Black

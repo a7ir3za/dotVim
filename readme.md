@@ -6,3 +6,5 @@
 ```
 $ ln -s ~/.vim/.vimrc  ~/.vimrc
 ```
+
+plugin/* && autoload/*

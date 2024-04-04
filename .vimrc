@@ -26,12 +26,11 @@ set ts=2 sts=2 sw=2 expandtab "Default Tab/Whitespace"
 "set matchpairs+=<:>
 
 if has("autocmd")
-	autocmd bufwritepost .vimrc source $MYVIMRC
+	autocmd BufWritePost .vimrc source $MYVIMRC
 
 	autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noexpandtab
 	autocmd FileType python setlocal ts=3 sts=3 sw=3 expandtab
 	autocmd FileType go setlocal ts=2 sts=2 sw=2 expandtab
-
 endif
 
 set listchars=eol:$,space:.,tab:»-
@@ -108,10 +107,11 @@ function! s:BuildGoFiles()
 endfunction
 
 let g:gitStat = '[]'
+let g:gitBranch = ''
 function! GitStatus()
   let g:gitStat = '['.system("git diff --no-color --minimal --stat ".shellescape(expand('%'))."|head -1|awk '{print$3,$4}'|tr -d '\n'").']'
+  let g:gitBranch = system("git branch --show-current|tr -d '\n'")
+  return g:gitBranch
 endfunction
 
-if has("autocmd")
-  autocmd BufEnter,BufWritePost *.go call GitStatus()
-endif
+autocmd FocusGained,BufEnter,BufWritePost *.go call GitStatus()

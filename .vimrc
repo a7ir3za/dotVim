@@ -1,4 +1,5 @@
-" vim: foldmethod=marker
+""" vim: set foldmethod=marker :""" 
+set modelines=1
 
 " General {{{1
 let mapleader='\'

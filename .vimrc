@@ -1,55 +1,47 @@
 """ vim: set foldmethod=marker :""" 
 set modelines=1
+"autocmd BufWritePost .vimrc source $MYVIMRC
 
 " General {{{1
 let mapleader='\'
+syntax on
 
 set autowrite
 set encoding=utf-8
 set clipboard=unnamed
-syntax on
-
 set number
 set nowrapscan
-filetype indent plugin on
 set hidden
-command! -nargs=* Wrap set wrap linebreak nolist
 set foldcolumn=5
 set ts=2 sts=2 sw=2 expandtab "Default Tab/Whitespace"
+set listchars=eol:$,space:.,tab:»-
+"set matchpairs+=<:>
+
+filetype indent plugin on
+command! -nargs=* Wrap set wrap linebreak nolist
 
 "colorscheme morning
 "colorscheme retrobox
-
 "highlight FoldColumn ctermbg=Black ctermfg=Grey
 "highlight Folded ctermfg=Black
 "highlight MatchParen ctermbg=12
 
-"set matchpairs+=<:>
-
-if has("autocmd")
-	autocmd BufWritePost .vimrc source $MYVIMRC
-
-	autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noexpandtab
-	autocmd FileType python setlocal ts=3 sts=3 sw=3 expandtab
-	autocmd FileType go setlocal ts=2 sts=2 sw=2 expandtab
-endif
-
-set listchars=eol:$,space:.,tab:»-
 nmap § :set list!<CR>
 map <Leader>ew :e <C-R>=expand("%:p:h")."/"<CR>
 
 " Language {{{1
 " Python {{{2
-if has("autocmd")
-	autocmd BufNewFile,BufRead *.py set ts=3 sts=3 sw=3 expandtab autoindent fileformat=unix
-endif	
+autocmd BufNewFile,BufRead *.py set ts=3 sts=3 sw=3 expandtab autoindent fileformat=unix
+" JavaScript {{{2
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noexpandtab
+" Go {{{2
+autocmd FileType go setlocal ts=2 sts=2 sw=2 expandtab
 
 " Plugins {{{1
 " NetRW {{{2
 let g:netrw_liststyle=3
 let g:netrw_banner=1
 let g:netrw_browse_split=0
-
 " VimGo {{{2
 let g:go_highlight_build_constraints=1
 let g:go_highlight_extra_types=1

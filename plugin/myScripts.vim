@@ -1,4 +1,6 @@
-""" myScripts.vim
+""" vim: set ts=3 sw=3 :"""
+
+" myScripts.vim
 
 let g:gitStat = '[]'
 let g:gitBranch = ''

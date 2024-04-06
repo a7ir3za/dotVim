@@ -1,10 +1,10 @@
 """ vim: set et ts=3 sw=3 :"""
 " myScripts.vim
 
-let g:gitStat = '[]'
+"let g:gitStat = '[]'
 let g:gitMsg = ''
 function! MyGitStatus()
-  let g:gitStat = '['.system("git diff --no-color --stat -- ".shellescape(expand('%'))."|head -1|awk '{print$3,$4}'|tr -d '\n'").']'
+  "let g:gitStat = '['.system("git diff --no-color --stat -- ".shellescape(expand('%'))."|head -1|awk '{print$3,$4}'|tr -d '\n'").']'
   
   let g:gitMsg = trim(system("git branch --show-current --no-color"))
   if system("git status --porcelain|grep '^ M '") != '' 
@@ -17,4 +17,4 @@ function! MyGitStatus()
 endfunction
 
 """ No need: would be called by consuming end
-" autocmd FocusGained,BufEnter,BufWritePost *.go call GitStatus()
+"autocmd FocusGained,BufEnter,BufWritePost *.go call GitStatus()

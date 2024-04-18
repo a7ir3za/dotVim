@@ -7,7 +7,7 @@ let g:airline#extensions#tabline#buffer_idx_mode=1
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>= <Plug>AirlineSelectNextTab
 
-let g:airline_detect_spelllang='flag'
+let g:airline_detect_spelllang=1
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols={}
